@@ -1,24 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ConnectMetamask from "./components/ConnectMetamask";
+import ReadERC20 from "./components/ReadERC20";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="text-lg">
+      Hola
+      <ConnectMetamask />
+      <ReadERC20 addressContract="0xc7df86762ba83f2a6197e1ff9bb40ae0f696b9e6" />
     </div>
   );
 }
