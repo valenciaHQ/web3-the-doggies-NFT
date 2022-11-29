@@ -3,7 +3,11 @@ type TokenData = {
         image_url: string,
         name: string,
         description: string,
-        external_url: string
+        external_url: string,
+        owner: string,
+        attributes: {
+            trait_type
+        }[]
     }
 }
 

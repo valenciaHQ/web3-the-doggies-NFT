@@ -16,26 +16,33 @@ export default function ReadERC20(props: Props) {
   const [data, setData] = useState(null)
   const [error, setError] = useState<ErrorType>()
 
-
   const addressContract = props.addressContract
   const { library } = useWeb3React<Web3Provider>()
-
 
   useEffect(() => {
     const init = async () => {
       setLoading(true)
       try {
-        const erc20: Contract = new Contract(addressContract, abi, library);
-        const tokenUrl = await erc20.tokenURI(props.currentTokenId);
+        const erc721: Contract = new Contract(addressContract, abi, library);
+        const tokenUrl = await erc721.tokenURI(props.currentTokenId);
+        const owner = await erc721.ownerOf(props.currentTokenId);
         if (!tokenUrl) throw Error("Url token not found")
         const tokenInfo = await fetch(tokenUrl).then(res => res.json())
-        setData(tokenInfo)
+        setData({ ...tokenInfo, owner })
+        setError(undefined)
       } catch (error) {
-        setError(error as ErrorType)
+        console.log("ERROR: ", error)
+        if (error instanceof Error) {
+          console.log(error.message)
+          if (error.message.includes("ERC721Metadata: URI query for nonexistent token")) {
+            setError({ message: "Sorry! Token not found, try again" })
+            return;
+          }
+          setError(error)
+        }
       } finally {
         setLoading(false)
       }
-
     }
     if (props.currentTokenId) {
       init()

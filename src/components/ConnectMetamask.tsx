@@ -32,7 +32,7 @@ const ConnectMetamask = () => {
                 </div>
             ) : (
                 <div className='flex flex-col items-center'>
-                    <button type="button" className="button" onClick={onClickConnect}>
+                    <button type="button" className="button mt-10 " onClick={onClickConnect}>
                         Connect MetaMask
                     </button>
                     <p className='text-white py-4'> You are not connected, please connect your wallet. </p>

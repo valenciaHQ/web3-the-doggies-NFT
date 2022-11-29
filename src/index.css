@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply mt-10 p-4 rounded-lg bg-teal-800 text-white;
+    @apply p-4 rounded-lg bg-teal-800 text-white;
   }
 
   .error {

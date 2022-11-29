@@ -12,6 +12,8 @@ function App() {
   const { active } = useWeb3React<Web3Provider>()
   const addressContract = process.env.REACT_APP_CONTRACT_ADRESS
 
+  console.log("current search:", currentSearchId)
+
   let content = addressContract && active &&
     <>
       <Filter setFilter={(value) => setCurrentSearchId(value)} />
