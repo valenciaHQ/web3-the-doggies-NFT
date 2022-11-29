@@ -8,11 +8,16 @@ This project queries against the doggies NFT contract address and get token info
 - Typescript
 - Tailwind
 - Web3
+- JEST and React testing library
 
-## Prerequirements
+## Prerequirements and run
 
 - `env.local` file with contract address value `REACT_APP_CONTRACT_ADRESS=0xc7df86762ba83f2a6197e1ff9bb40ae0f696b9e6`
 - `npm install` && `npm run start`
+
+### To run test
+
+- `npm run test`
 
 ## Personal notes
 
