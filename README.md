@@ -1,6 +1,7 @@
 # The Sandbox - Doggies NFT 🚀🚀
 
 This project queries against the doggies NFT contract address and get token information by ID.
+This has been deployed using [VERCEL](https://vercel.com/valenciahq/web3-the-doggies-nft).
 
 ## Stack
 
@@ -25,4 +26,4 @@ First time doing queries against a contract, looking for ABI, understanding conc
 
 ## Next steps
 
-Integrate rtl with web3, maybe using https://www.npmjs.com/package/eth-testing
+Integrate rtl with web3, maybe using [etn-testing](https://www.npmjs.com/package/eth-testing)
