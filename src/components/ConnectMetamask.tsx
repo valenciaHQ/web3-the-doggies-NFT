@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-
+import React from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import { UserRejectedRequestError } from '@web3-react/injected-connector'
@@ -7,8 +6,7 @@ import { injected } from '../utils/connectors'
 import { formatAddress } from '../utils/helpers'
 
 const ConnectMetamask = () => {
-
-    const { chainId, account, activate, deactivate, setError, active, library, connector } = useWeb3React<Web3Provider>()
+    const { chainId, account, activate, deactivate, setError, active } = useWeb3React<Web3Provider>()
 
     const onClickConnect = () => {
         activate(injected, (error) => {
@@ -21,25 +19,23 @@ const ConnectMetamask = () => {
         }, false)
     }
 
-    const onClickDisconnect = () => {
-        deactivate()
-    }
+    const onClickDisconnect = () => deactivate()
 
     return (
-        <div>
+        <div className='flex justify-center'>
             {active && typeof account === 'string' ? (
-                <div>
-                    <button type="button" onClick={onClickDisconnect}>
+                <div className='flex flex-col items-center' >
+                    <button className='button' type="button" onClick={onClickDisconnect}>
                         Account: {formatAddress(account, 4)}
                     </button>
-                    <p>ChainID: {chainId} connected</p>
+                    <p className='text-white py-4' >ChainID: {chainId} connected</p>
                 </div>
             ) : (
-                <div>
-                    <button type="button" onClick={onClickConnect}>
+                <div className='flex flex-col items-center'>
+                    <button type="button" className="button" onClick={onClickConnect}>
                         Connect MetaMask
                     </button>
-                    <p> not connected </p>
+                    <p className='text-white py-4'> You are not connected, please connect your wallet. </p>
                 </div>
 
             )}
@@ -47,4 +43,4 @@ const ConnectMetamask = () => {
     )
 }
 
-export default ConnectMetamask
+export default React.memo(ConnectMetamask)

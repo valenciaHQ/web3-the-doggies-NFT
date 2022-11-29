@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply mt-10 p-4 rounded-lg bg-teal-800 text-white;
+  }
+
+  .error {
+    @apply text-red-200 text-center py-4;
+  }
+}
