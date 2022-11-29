@@ -17,3 +17,7 @@ This project queries against the doggies NFT contract address and get token info
 ## Personal notes
 
 First time doing queries against a contract, looking for ABI, understanding concepts. I LOVE THIS 😍.
+
+## Next steps
+
+Integrate rtl with web3, maybe using https://www.npmjs.com/package/eth-testing
